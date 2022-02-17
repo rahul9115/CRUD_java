@@ -77,19 +77,22 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
       </td>
       
     </tr>
-    <div class="col-5">
-			<a href="employeeregister.jsp" class="btn btn-danger btn-rounded btn-sm m-0">Register</a>
-	</div>
-
+     
     <% } %>
       
   </tbody>
 
 </table>
 </div>
+
         </div>
+        
  </div>
-  <div class="row"></div>
+ <div class="row">
+    <div class="col-5">
+			<a href="employeeregister.jsp" class="btn btn-danger btn-rounded btn-sm m-0">Register</a>
+		</div>
+</div>
     </div>
   </div>
 </section>
