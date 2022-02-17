@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import net.javaguides.registration.dao.EmployeeDao;
 import net.javaguides.registration.model.Employee;
+import java.sql.*;
 
 @WebServlet("/udpate")
 public class display extends HttpServlet {
@@ -21,7 +22,7 @@ public class display extends HttpServlet {
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/udpate.jsp");
 		dispatcher.forward(request, response);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,SQLException {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("Name");
         String email = request.getParameter("Email");
@@ -29,21 +30,23 @@ public class display extends HttpServlet {
         String age = request.getParameter("Age");
         String dob = request.getParameter("DOB");
         String gender = request.getParameter("Gender");
-
-        Employee employee = new Employee();
-        employee.setName(name);
-        employee.setEmail(email);
-        employee.setAge(age);
-        employee.setDob(dob);
-        employee.setGender(gender);
+        String id = request.getParameter("user");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration?useSSL=false", "root", "rahul9115");
+        Statement s = connection.createStatement();
+        s.executeQuery("update register "
+        		+ "set id="+id+","
+        		+ "set name="+name+","
+        		+ "set email="+email+","
+        		+ "set country="+country+","
+        		+ "set age="+age+","
+        		+ "set DOB="+dob+","
+        		+ "set gender="+gender+
+        		"where id="+id+";"
+        		);
         
 
-        try {
-            employeeDao.registerEmployee(employee);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        
         RequestDispatcher dispatcher =request.getRequestDispatcher("/display.jsp");
         dispatcher.forward(request, response);
         //response.sendRedirect("employeedetails.jsp");
