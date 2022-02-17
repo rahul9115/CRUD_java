@@ -17,12 +17,14 @@ public class display extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// TODO Auto-generated method stub
-		
+		String id = request.getParameter("user");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/udpate.jsp");
+		request.setAttribute("id", id);
 		dispatcher.forward(request, response);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException,SQLException {
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// TODO Auto-generated method stub
 		String name = request.getParameter("Name");
         String email = request.getParameter("Email");
@@ -31,6 +33,7 @@ public class display extends HttpServlet {
         String dob = request.getParameter("DOB");
         String gender = request.getParameter("Gender");
         String id = request.getParameter("user");
+        try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration?useSSL=false", "root", "rahul9115");
         Statement s = connection.createStatement();
@@ -44,7 +47,9 @@ public class display extends HttpServlet {
         		+ "set gender="+gender+
         		"where id="+id+";"
         		);
-        
+        }catch(Exception e) {
+        	System.out.println("Exception");
+        }
 
         
         RequestDispatcher dispatcher =request.getRequestDispatcher("/display.jsp");

@@ -15,12 +15,12 @@
 <%
 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration?useSSL=false", "root", "rahul9115");
 Statement s = connection.createStatement();
-ResultSet rs = s.executeQuery("SELECT * FROM register");
+ResultSet rs = s.executeQuery("SELECT * FROM register where id="+request.getAttribute("id"));
 %>
 <% while(rs.next()){ %>
  <div align="center">
   <h1>Employee Register Form</h1>
-  <form action="<%= request.getContextPath() %>/update" method="post">
+  <form action="<%= request.getContextPath() %>/update?user=<%= rs.getString(1) %>" method="post">
    <table style="with: 80%">
     <tr>
      <td>Name</td>
