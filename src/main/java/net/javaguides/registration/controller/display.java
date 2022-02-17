@@ -6,14 +6,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import net.javaguides.registration.dao.EmployeeDao;
+import net.javaguides.registration.dao.update;
 import net.javaguides.registration.model.Employee;
 import java.sql.*;
 
 @WebServlet("/update")
 public class display extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private EmployeeDao employeeDao;
+	private update up;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// TODO Auto-generated method stub
@@ -25,7 +25,22 @@ public class display extends HttpServlet {
 		
 		dispatcher.forward(request, response);
 	}
-	
+	public void update(String name,String email,String country,String age, String dob,String gender,String id)throws SQLException,ClassNotFoundException {
+		 Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration?useSSL=false", "root", "rahul9115");
+	        Statement s = connection.createStatement();
+	        s.executeQuery("update register "
+	        		+ "set id="+id+","
+	        		+ "set name="+name+","
+	        		+ "set email="+email+","
+	        		+ "set country="+country+","
+	        		+ "set age="+age+","
+	        		+ "set DOB="+dob+","
+	        		+ "set gender="+gender+
+	        		"where id="+id+";"
+	        		);
+		
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// TODO Auto-generated method stub
 		String name = request.getParameter("Name");
@@ -35,23 +50,12 @@ public class display extends HttpServlet {
         String dob = request.getParameter("DOB");
         String gender = request.getParameter("Gender");
         String id = request.getParameter("user");
-        try {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration?useSSL=false", "root", "rahul9115");
-        Statement s = connection.createStatement();
-        s.executeQuery("update register "
-        		+ "set id="+id+","
-        		+ "set name="+name+","
-        		+ "set email="+email+","
-        		+ "set country="+country+","
-        		+ "set age="+age+","
-        		+ "set DOB="+dob+","
-        		+ "set gender="+gender+
-        		"where id="+id+";"
-        		);
-        }catch(Exception e) {
+        
+        up.register(name,email,country,age,dob,gender,id);
+       
+        
         	System.out.println("Exception");
-        }
+        
 
         
         RequestDispatcher dispatcher =request.getRequestDispatcher("/display.jsp");
