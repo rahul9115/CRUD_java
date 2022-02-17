@@ -20,8 +20,9 @@ public class display extends HttpServlet {
 		String id = request.getParameter("user");
 		System.out.println("This"+id);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher dispatcher =request.getRequestDispatcher("/udpate.jsp");
 		request.setAttribute("id", id);
+		RequestDispatcher dispatcher =request.getRequestDispatcher("/update.jsp");
+		
 		dispatcher.forward(request, response);
 	}
 	

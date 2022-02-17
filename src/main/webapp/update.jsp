@@ -24,30 +24,30 @@ ResultSet rs = s.executeQuery("SELECT * FROM register where id="+request.getAttr
    <table style="with: 80%">
     <tr>
      <td>Name</td>
-     <td><input type="text" value="<%=rs.getString(1) %>>" name="Name" /></td>
+     <td><input type="text" value="<%=rs.getString(1) %>" name="Name" /></td>
     </tr>
     <tr>
      <td>Email</td>
-     <td><input type="text" value="<%=rs.getString(2) %>>" name="Email" /></td>
+     <td><input type="text" value="<%=rs.getString(2) %>" name="Email" /></td>
     </tr>
     <tr>
      <td>Country</td>
-     <td><input type="text" value="<%=rs.getString(3) %>>" name="Country" /></td>
+     <td><input type="text" value="<%=rs.getString(3) %>" name="Country" /></td>
     </tr>
     <tr>
      <td>Age</td>
-     <td><input type="number" value="<%=rs.getString(4) %>>" name="Age" /></td>
+     <td><input type="number" value="<%=rs.getString(4) %>" name="Age" /></td>
     </tr>
     <tr>
      <td>Date of Birth</td>
-     <td><input type="text" value="<%=rs.getString(5) %>>" name="DOB" /></td>
+     <td><input type="text" value="<%=rs.getString(5) %>" name="DOB" /></td>
     </tr>
     <tr>
      <td>Gender</td>
-     <td><input type="text" value="<%=rs.getString(6) %>>" name="Gender" /></td>
+     <td><input type="text" value="<%=rs.getString(6) %>" name="Gender" /></td>
     </tr>
    </table>
-   <input type="submit" value="U" />
+   <input type="submit" value="Update" />
   </form>
   <% } %>
  </div>
