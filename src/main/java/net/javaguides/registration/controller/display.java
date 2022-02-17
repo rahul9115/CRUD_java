@@ -10,7 +10,7 @@ import net.javaguides.registration.dao.EmployeeDao;
 import net.javaguides.registration.model.Employee;
 import java.sql.*;
 
-@WebServlet("/udpate")
+@WebServlet("/update")
 public class display extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EmployeeDao employeeDao;
@@ -18,6 +18,7 @@ public class display extends HttpServlet {
 		
 		// TODO Auto-generated method stub
 		String id = request.getParameter("user");
+		System.out.println("This"+id);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher dispatcher =request.getRequestDispatcher("/udpate.jsp");
 		request.setAttribute("id", id);
