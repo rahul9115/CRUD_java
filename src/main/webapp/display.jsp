@@ -71,13 +71,15 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
 			<a href="<%= request.getContextPath() %>/update?user=<%= rs.getString(7) %>" class="btn btn-success btn-rounded btn-sm m-0">Update</a>
 			</div>
 			<div class="col-5">
-			<a href="<%= request.getContextPath() %>/delete/<%=rs.getString(7) %>" class="btn btn-danger btn-rounded btn-sm m-0">Delete</a>
+			<a href="<%= request.getContextPath() %>/delete?user=<%=rs.getString(7) %>" class="btn btn-danger btn-rounded btn-sm m-0">Delete</a>
 			</div>
 		</div>
       </td>
       
     </tr>
-    
+    <div class="col-5">
+			<a href="employeeregister.jsp" class="btn btn-danger btn-rounded btn-sm m-0">Register</a>
+	</div>
 
     <% } %>
       
@@ -87,6 +89,7 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
 </div>
         </div>
  </div>
+  <div class="row"></div>
     </div>
   </div>
 </section>
