@@ -68,10 +68,10 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
       <td>
 	  <div class="row">
 			<div class="col-5">
-			<button type="button" class="btn btn-success btn-rounded btn-sm m-0">Update</button>
+			<a href="/update/<%=rs.getString(1) %>>" class="btn btn-success btn-rounded btn-sm m-0">Update</a>
 			</div>
 			<div class="col-5">
-			<button type="button" class="btn btn-danger btn-rounded btn-sm m-0">Delete</button>
+			<a href="/delete/<%=rs.getString(1) %>" class="btn btn-danger btn-rounded btn-sm m-0">Delete</a>
 			</div>
 		</div>
       </td>
