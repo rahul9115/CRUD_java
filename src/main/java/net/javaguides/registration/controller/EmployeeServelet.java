@@ -62,6 +62,7 @@ public class EmployeeServelet extends HttpServlet {
         employee.setAge(age);
         employee.setDob(dob);
         employee.setGender(gender);
+        employee.setCountry(country);
         
 
         try {
