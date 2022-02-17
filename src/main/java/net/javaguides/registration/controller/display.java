@@ -14,6 +14,9 @@ import java.sql.*;
 public class display extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private update up;
+	public display() {
+		up=new update();
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// TODO Auto-generated method stub
@@ -50,11 +53,18 @@ public class display extends HttpServlet {
         String dob = request.getParameter("DOB");
         String gender = request.getParameter("Gender");
         String id = request.getParameter("user");
-        
-        up.register(name,email,country,age,dob,gender,id);
+       
+        try {
+        	
+			up.register(name,email,country,age,dob,gender,id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("inner");
+			e.printStackTrace();
+		}
        
         
-        	System.out.println("Exception");
+        	
         
 
         
