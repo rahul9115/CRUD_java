@@ -38,6 +38,9 @@
    </table>
    <input type="submit" value="Submit" />
   </form>
+  <div>
+  <a href="display.jsp">View Users</a>
+  </div>
  </div>
 </body>
 </html>

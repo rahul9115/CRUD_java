@@ -44,10 +44,12 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
   <thead>
     <tr>
       <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>Name</th>
       <th>Email-ID</th>
-	  
+      <th>Country</th>
+      <th>Age</th>
+      <th>DOB</th>
+	  <th>Gender</th>
 	  <th>Udpate/Delete</th>
     </tr>
   </thead>
@@ -56,13 +58,13 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
   <tbody>
   <% while(rs.next()){ %>
     <tr>
-      <th scope="row">1</th>
-	  <td><%= rs.getString(3) %></td>
-      <td><%= rs.getString(2) %></td>
+      <th scope="row"><%= rs.getString(7) %></th>
 	  <td><%= rs.getString(1) %></td>
-	  <td>
-	  <button class="btn btn-Info"><i class="fa fa-download"></i> Download Resume</button>
-	  </td>
+      <td><%= rs.getString(2) %></td>
+	  <td><%= rs.getString(3) %></td>
+	  <td><%= rs.getString(4) %></td> 	
+	  <td><%= rs.getString(5) %></td>
+	  <td><%= rs.getString(6) %></td>	
       <td>
 	  <div class="row">
 			<div class="col-5">
