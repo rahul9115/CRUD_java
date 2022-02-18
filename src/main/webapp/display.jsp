@@ -90,7 +90,7 @@ ResultSet rs = s.executeQuery("SELECT * FROM register");
  </div>
  <div class="row">
     <div class="col-5">
-			<a href="employeeregister.jsp" class="btn btn-danger btn-rounded btn-sm m-0">Register</a>
+			<a href="employeereg.jsp" class="btn btn-danger btn-rounded btn-sm m-0">Register</a>
 		</div>
 </div>
     </div>
